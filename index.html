@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio Longitudinal — Lau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="icon-mushroom" viewBox="0 0 200 200">
+      <path d="M40 190v-55c0-14 10-22 22-22s22 8 22 22v55" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M14 118c0-30 22-52 48-52s48 22 48 52c0 8-6 12-14 12H28c-8 0-14-4-14-12z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M40 96l3 8M56 90v10M72 96l-3 8M28 108l4 6M84 108l-4 6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M112 190v-38c0-11 8-17 17-17s17 6 17 17v38" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M92 138c0-22 16-38 37-38s37 16 37 38c0 6-5 9-11 9h-52c-6 0-11-3-11-9z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M112 122l2 6M129 118v8M146 122l-2 6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M8 190v-24c0-7 5-11 11-11s11 4 11 11v24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M-3 158c0-14 10-24 24-24s24 10 24 24c0 4-3 6-7 6H4c-4 0-7-2-7-6z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-dragonfly" viewBox="0 0 200 200">
+      <path d="M100 40c-4-10-10-16-16-18M100 40c4-10 10-16 16-18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="100" cy="46" r="9" fill="none" stroke="currentColor" stroke-width="3"/>
+      <path d="M100 55v110c0 8-4 14-4 20s2 10 4 10 4-4 4-10-4-12-4-20" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round">
+        <path d="M96 68c-30-18-60-14-80 2 18 24 55 30 80 10z"/>
+        <path d="M96 68l-70 4M96 68l-64 16M96 68l-54 26"/>
+        <path d="M104 68c30-18 60-14 80 2-18 24-55 30-80 10z"/>
+        <path d="M104 68l70 4M104 68l64 16M104 68l54 26"/>
+        <path d="M97 96c-26-8-48 0-62 16 16 18 44 20 64 4z"/>
+        <path d="M103 96c26-8 48 0 62 16-16 18-44 20-64 4z"/>
+      </g>
+    </symbol>
+
+    <symbol id="icon-leaf" viewBox="0 0 200 200">
+      <path d="M30 170C10 110 40 40 150 20c14 60-10 130-90 150-10-40-14-80 6-116" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M40 165C70 120 100 80 140 30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M55 140l20-10M70 118l20-8M85 96l18-8M100 74l16-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-heart-stamp" viewBox="0 0 100 90">
+      <path d="M50 85C20 60 5 35 5 20 5 5 20 0 32 10 40 17 46 25 50 32 54 25 60 17 68 10 80 0 95 5 95 20 95 35 80 60 50 85Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icon-dna" viewBox="0 0 100 240">
+      <path d="M20 0C20 30 80 30 80 60C80 90 20 90 20 120C20 150 80 150 80 180C80 210 20 210 20 240" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <path d="M80 0C80 30 20 30 20 60C20 90 80 90 80 120C80 150 20 150 20 180C20 210 80 210 80 240" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <g stroke="currentColor" stroke-width="3.5" stroke-linecap="round">
+        <path d="M35 30h30M35 90h30M35 150h30M35 210h30"/>
+      </g>
+    </symbol>
+
+    <symbol id="icon-cell-mini" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="4"/>
+      <circle cx="88" cy="88" r="26" fill="none" stroke="currentColor" stroke-width="3.5"/>
+      <circle cx="140" cy="130" r="7" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <circle cx="58" cy="135" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <ellipse cx="135" cy="65" rx="10" ry="5" fill="none" stroke="currentColor" stroke-width="2.5" transform="rotate(35 135 65)"/>
+    </symbol>
+
+    <symbol id="icon-bacteria" viewBox="0 0 220 120">
+      <rect x="30" y="20" width="140" height="80" rx="40" fill="none" stroke="currentColor" stroke-width="4"/>
+      <circle cx="80" cy="52" r="4" fill="currentColor"/>
+      <circle cx="110" cy="70" r="3.5" fill="currentColor"/>
+      <circle cx="95" cy="42" r="3" fill="currentColor"/>
+      <path d="M170 38c14-6 22-16 26-26M170 60c17-1 28-6 36-12M170 82c14 6 22 16 26 26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-bacteria-round" viewBox="0 0 200 120">
+      <circle cx="60" cy="60" r="42" fill="none" stroke="currentColor" stroke-width="4"/>
+      <circle cx="145" cy="60" r="34" fill="none" stroke="currentColor" stroke-width="4"/>
+      <circle cx="50" cy="48" r="4" fill="currentColor"/>
+      <circle cx="72" cy="72" r="3" fill="currentColor"/>
+      <circle cx="140" cy="52" r="3" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icon-testtube" viewBox="0 0 100 200">
+      <path d="M34 18h32v112c0 24-16 38-16 38s-16-14-16-38z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M28 18h44" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M34 92h32" stroke="currentColor" stroke-width="3"/>
+      <circle cx="44" cy="118" r="3.5" fill="currentColor"/>
+      <circle cx="58" cy="138" r="3" fill="currentColor"/>
+      <circle cx="48" cy="150" r="2.5" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icon-dropper" viewBox="0 0 100 200">
+      <path d="M35 14c0-7 6-10 15-10s15 3 15 10v33c9 3 14 11 14 20v68c0 16-13 29-29 29s-29-13-29-29V67c0-9 5-17 14-20z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M24 66h52" stroke="currentColor" stroke-width="3"/>
+      <path d="M50 150c-4 12-4 20-4 24 0 5 2 9 4 9s4-4 4-9c0-4 0-12-4-24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-molecule" viewBox="0 0 200 200">
+      <path d="M100 30l52 30v60l-52 30-52-30v-60z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M100 30v-25" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="100" cy="30" r="8" fill="currentColor"/>
+      <circle cx="152" cy="60" r="8" fill="currentColor"/>
+      <circle cx="152" cy="120" r="8" fill="currentColor"/>
+      <circle cx="100" cy="150" r="8" fill="currentColor"/>
+      <circle cx="48" cy="120" r="8" fill="currentColor"/>
+      <circle cx="48" cy="60" r="8" fill="currentColor"/>
+      <circle cx="100" cy="5" r="6" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icon-pencil" viewBox="0 0 60 200">
+      <path d="M18 15h20v143l-10 32-10-32z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M14 34h28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M20 163h16" stroke="currentColor" stroke-width="2.5"/>
+    </symbol>
+
+    <symbol id="icon-flask" viewBox="0 0 140 200">
+      <path d="M55 12h30v46l35 98c6 16-6 32-23 32H43c-17 0-29-16-23-32l35-98z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M50 12h40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M43 132h54" stroke="currentColor" stroke-width="3"/>
+      <circle cx="60" cy="152" r="3.5" fill="currentColor"/>
+      <circle cx="82" cy="162" r="3" fill="currentColor"/>
+      <circle cx="70" cy="175" r="2.5" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icon-beaker" viewBox="0 0 140 180">
+      <path d="M38 10h64l-6 16v116c0 15-12 26-26 26s-26-11-26-26V26z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M34 10h72" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M38 98h64" stroke="currentColor" stroke-width="3"/>
+      <circle cx="58" cy="118" r="3.5" fill="currentColor"/>
+      <circle cx="80" cy="80" r="3" fill="currentColor"/>
+      <circle cx="66" cy="60" r="2.5" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icon-notebook" viewBox="0 0 160 200">
+      <rect x="26" y="8" width="128" height="184" rx="8" fill="none" stroke="currentColor" stroke-width="4"/>
+      <path d="M26 30h12M26 55h12M26 80h12M26 105h12M26 130h12M26 155h12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M58 48h72M58 68h50" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-arrow-note" viewBox="0 0 100 60">
+      <path d="M6 8c22 4 42 18 58 38" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M46 39l19 8-4-20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="icon-cell" viewBox="0 0 220 130">
+    <circle class="cell-a" cx="90" cy="65" r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+    <circle class="cell-a-nucleus" cx="90" cy="65" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+    <circle class="cell-b" cx="130" cy="65" r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+    <circle class="cell-b-nucleus" cx="130" cy="65" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+  </symbol>
+</svg>
+
+<div id="petal-layer" aria-hidden="true"></div>
+<audio id="celebrationAudio" src="assets/audio/audiosi.ogg" preload="none"></audio>
+
+<!-- ===================== HERO ===================== -->
+<section class="section hero" id="hero">
+  <img class="deco deco-mushroom-1 icon" src="assets/icons/icon-mushroom.png" alt="">
+  <img class="deco deco-dragonfly-1 icon" src="assets/icons/icon-dragonfly2.png" alt="">
+  <div class="deco-note deco-note-dragonfly">
+    <svg class="icon"><use href="#icon-arrow-note"/></svg>
+    <span>me picó</span>
+  </div>
+  <svg class="deco deco-leaf-1 icon"><use href="#icon-leaf"/></svg>
+  <img class="deco deco-flower-1 icon" src="assets/icons/icon-daisy.png" alt="">
+  <img class="deco deco-fox-1 icon" src="assets/icons/icon-fox.png" alt="">
+  <svg class="deco deco-dna-1 icon"><use href="#icon-dna"/></svg>
+  <svg class="deco deco-dna-2 icon"><use href="#icon-dna"/></svg>
+  <svg class="deco deco-bacteria-1 icon"><use href="#icon-bacteria"/></svg>
+
+  <div class="hero-content">
+    <h1 class="hero-title" data-edit="titulo-principal">Estudio longitudinal de compatibilidad biológica, química y simbiótica</h1>
+    <button class="scroll-cue" id="scrollCue" aria-label="Bajar">
+      <span>desliza</span>
+      <svg width="20" height="28" viewBox="0 0 20 28" fill="none"><path d="M10 1v22M10 23l-6-6M10 23l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ===================== OBSERVACIÓN ===================== -->
+<section class="section observation-section" id="observation">
+  <img class="deco deco-leaf-obs icon" src="assets/icons/icon-daisy.png" alt="">
+  <svg class="deco deco-cellmini-1 icon"><use href="#icon-cell-mini"/></svg>
+  <svg class="deco deco-notebook-1 icon"><use href="#icon-notebook"/></svg>
+  <svg class="deco deco-pencil-1 icon"><use href="#icon-pencil"/></svg>
+  <span class="element-tag element-tag-obs">H₂O</span>
+  <p class="section-kicker">Cuaderno de campo</p>
+  <h2 class="section-title">La observación</h2>
+  <div class="field-note reveal">
+    <span class="field-note-label" data-edit="observacion-label">nota de campo</span>
+    <p data-edit="observacion-texto">Registro empírico: Desde el día uno, cruzarnos generó una alteración inmediata en mi ecosistema, con un gran aumento de dopamina y ritmo cardíaco. El objetivo de este estudio fue investigar si existía el potencial para desarrollar mutualismo.</p>
+  </div>
+</section>
+
+<!-- ===================== CONTADOR ===================== -->
+<section class="section counter-section" id="counter">
+  <svg class="deco deco-leaf-2 icon"><use href="#icon-leaf"/></svg>
+  <img class="deco deco-whale-1 icon" src="assets/icons/icon-whale.png" alt="">
+  <svg class="deco deco-dropper-1 icon"><use href="#icon-dropper"/></svg>
+  <span class="element-tag element-tag-counter">CO₂</span>
+  <p class="section-kicker">Estudio longitudinal</p>
+  <div class="counter-box">
+    <span id="dayCount">0</span>
+    <span class="counter-label">días</span>
+  </div>
+  <p class="counter-sub">De observación continua.</p>
+</section>
+
+<!-- ===================== HIPÓTESIS ===================== -->
+<section class="section hypothesis-section" id="hypothesis">
+  <img class="deco deco-flower-obs icon" src="assets/icons/icon-daffodil.png" alt="">
+  <svg class="deco deco-bacteriaround-1 icon"><use href="#icon-bacteria-round"/></svg>
+  <svg class="deco deco-molecule-1 icon"><use href="#icon-molecule"/></svg>
+  <span class="element-tag element-tag-hyp">O₂</span>
+  <p class="section-kicker">Análisis de datos</p>
+  <h2 class="section-title">La hipótesis</h2>
+  <div class="field-note reveal">
+    <span class="field-note-label" data-edit="hipotesis-label">hipótesis</span>
+    <p data-edit="hipotesis-texto">Hemos desarrollado una asociación mutualista ideal. Tenemos una química óptima, alcanzamos un equilibrio natural y funcionamos como un sistema donde nos potenciamos mutuamente.</p>
+  </div>
+</section>
+
+<!-- ===================== VARIABLES ===================== -->
+<section class="section variables-section" id="variables">
+  <svg class="deco deco-testtube-1 icon"><use href="#icon-testtube"/></svg>
+  <svg class="icon-cell-anim deco deco-cell-1"><use href="#icon-cell"/></svg>
+  <svg class="deco deco-flask-1 icon"><use href="#icon-flask"/></svg>
+  <svg class="deco deco-dna-3 icon"><use href="#icon-dna"/></svg>
+  <svg class="deco deco-beaker-1 icon"><use href="#icon-beaker"/></svg>
+  <span class="element-tag element-tag-vars">Na</span>
+  <p class="section-kicker">Parámetros del estudio</p>
+  <h2 class="section-title">Las variables del experimento</h2>
+
+  <div class="field-note reveal variables-card">
+    <div class="variable-row">
+      <span class="variable-label">Variable independiente</span>
+      <span class="variable-value">La cantidad de tiempo que paso con vos.</span>
+    </div>
+    <div class="variable-row">
+      <span class="variable-label">Variable dependiente</span>
+      <span class="variable-value">Mi felicidad y las alteraciones positivas en mi ritmo cardíaco.</span>
+    </div>
+    <div class="variable-row">
+      <span class="variable-label">Entorno controlado</span>
+      <span class="variable-value">Cualquier ecosistema donde estemos juntos :)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERÍA ===================== -->
+<section class="section gallery-section" id="gallery">
+  <img class="deco deco-dragonfly-2 icon" src="assets/icons/icon-dragonfly2.png" alt="">
+  <img class="deco deco-cat-1 icon" src="assets/icons/icon-cat.png" alt="">
+  <div class="deco-note deco-note-cat">
+    <svg class="icon"><use href="#icon-arrow-note"/></svg>
+    <span>tu hija</span>
+  </div>
+  <p class="section-kicker">Resultados</p>
+  <h2 class="section-title">Evidencia empírica (recolectada)</h2>
+
+  <div class="gallery-group reveal">
+    <div class="polaroid-grid">
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto1.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 1</span><span data-edit="caption-1">Comprobación visual de mutualismo en desarrollo.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto2.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 2</span><span data-edit="caption-2">Alto índice de ñoñez compartida.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto7.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 3</span><span data-edit="caption-7">Ingesta masiva de nutrientes y recarga de ATP en conjunto.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto12.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 4</span><span data-edit="caption-12">Síntesis de nutrientes en mediana escala.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto13.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 5</span><span data-edit="caption-13">Registro empírico de un pico de dopamina compartido.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto14.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 6</span><span data-edit="caption-14">Jessie we need to cook & sorrentinos.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto17.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 7</span><span data-edit="caption-17">Cómo amo lo ñoña y apasionada que sos.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto18.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 8</span><span data-edit="caption-18">Proliferación de aura.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto19.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 9</span><span data-edit="caption-19">Auditoría externa superada: el organismo supervisor "El Gordo" aprueba nuestra simbiosis.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto20.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 10</span><span data-edit="caption-20">Registro gráfico de una reacción exotérmica evidente.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="gallery-group reveal">
+    <div class="polaroid-grid">
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto8.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 11</span><span data-edit="caption-8">Fenotipo dominante, esa sonrisa que me da mil años de vida.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto9.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 12</span><span data-edit="caption-9">Transferencia directa de afecto en ecosistema de poncho.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto11.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 13</span><span data-edit="caption-11">Indecisión simbiótica eligiendo nutrientes.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto15.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 14</span><span data-edit="caption-15">Exposición compartida a estímulos folklóricos.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto21.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 15</span><span data-edit="caption-21">Fenotipo dominante x2.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto22.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 16</span><span data-edit="caption-22">Fenotipo dominante x3.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto23.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 17</span><span data-edit="caption-23">Fenotipo dominante x4.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="gallery-group reveal">
+    <div class="polaroid-grid">
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto3.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 18</span><span data-edit="caption-3">Masivo farmeo de aura en conjunto sobre equinos.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto4.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 19</span><span data-edit="caption-4">Exploración de ecosistemas acuáticos en conjunto.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto5.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 20</span><span data-edit="caption-5">Simbiosis exitosa (a pesar de nuestras diferencias sobre el rol de las libélulas).</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto6.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 24</span><span data-edit="caption-6">Emisión masiva de alegría. Registro empírico de una energía inigualable en el hábitat.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto10.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 22</span><span data-edit="caption-10">Segundo ensayo equino para maximizar el farmeo de aura.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto16.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 23</span><span data-edit="caption-16">Transferencia de datos botánicos a cargo de la mejor profe de biología.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto24.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 25</span><span data-edit="caption-24">Índices totalmente fuera de escala, comprobación visual del espécimen más hermoso de la biósfera.</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto25.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 21</span><span data-edit="caption-25">Integración de organismos aliados al ecosistema (altísimo índice de afinidad con Steve).</span></figcaption>
+      </figure>
+      <figure class="polaroid reveal">
+        <img class="polaroid-photo" src="assets/photos/foto26.jpg" alt="" loading="lazy">
+        <figcaption><span class="sample-number">Muestra 26</span><span data-edit="caption-26">Registro del espécimen más cool y tierno.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LÍNEA DE TIEMPO ===================== -->
+<section class="section timeline-section" id="timeline">
+  <img class="deco deco-flower-2 icon" src="assets/icons/icon-daffodil.png" alt="">
+  <img class="deco deco-horse-1 icon" src="assets/icons/icon-horse.png" alt="">
+  <p class="section-kicker">Bitácora de campo</p>
+  <h2 class="section-title">Registro de observaciones</h2>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><img class="icon" src="assets/icons/icon-leaf-bit1.png" alt=""></div>
+      <div class="timeline-card">
+        <span class="timeline-date" data-edit="fecha-1">1. El primer avistamiento</span>
+        <p data-edit="hito-1">Me flechaste de una, corta.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><img class="icon" src="assets/icons/icon-leaf-bit2.png" alt=""></div>
+      <div class="timeline-card">
+        <span class="timeline-date" data-edit="fecha-2">2. Primer ensayo de campo:</span>
+        <p data-edit="hito-2">Cuando tomamos un heladito al frente del buenpa.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><img class="icon" src="assets/icons/icon-leaf-bit3.png" alt=""></div>
+      <div class="timeline-card">
+        <span class="timeline-date" data-edit="fecha-3">3. El evento catalizador:</span>
+        <p data-edit="hito-3">Cuando te escuché cantando El Tesoro en el auto.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><img class="icon" src="assets/icons/icon-leaf-bit4.png" alt=""></div>
+      <div class="timeline-card">
+        <span class="timeline-date" data-edit="fecha-4">4. Estado actual de la simbiosis:</span>
+        <p data-edit="hito-4">?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CARTA ===================== -->
+<section class="section letter-section" id="letter">
+  <img class="deco deco-mushroom-4 icon" src="assets/icons/icon-mushroom.png" alt="">
+  <p class="section-kicker">Conclusión</p>
+  <h2 class="section-title">El informe final</h2>
+
+  <div class="envelope-wrap">
+    <div class="envelope" id="envelope">
+      <div class="envelope-back"></div>
+      <div class="letter-paper letter-paper-white" id="letterPaper">
+        <p data-edit="carta-texto">
+          Conclusión de los resultados:<br><br>
+          La ciencia no miente morrrrr, las pruebas son clarísimas. La
+          hipótesis inicial se confirma totalmente: me hacés muy feliz y
+          me encanta compartir mi vida con vos.
+        </p>
+        <span class="letter-signature" data-edit="firma">Científico Santiago Pizarro</span>
+      </div>
+      <svg class="envelope-flap" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon points="0,0 100,0 50,47" />
+      </svg>
+      <svg class="envelope-stamp icon"><use href="#icon-heart-stamp"/></svg>
+    </div>
+    <p class="envelope-hint" id="envelopeHint">tocá el sobre para abrirlo</p>
+  </div>
+</section>
+
+<!-- ===================== LA PREGUNTA ===================== -->
+<section class="section question-section" id="question">
+  <img class="deco deco-flower-3 icon" src="assets/icons/icon-daisy.png" alt="">
+  <img class="deco deco-dragonfly-3 icon" src="assets/icons/icon-dragonfly2.png" alt="">
+
+  <div class="question-box" id="questionBox">
+    <p class="question-lead">Sabiendo que los resultados fueron un éxito, solo me queda una pregunta para hacer esto oficial...</p>
+    <h2 class="question-title">¿Validamos la hipótesis y hacemos oficial esta relación simbiótica?</h2>
+    <div class="question-buttons">
+      <button class="btn-yes" id="btnYes">Confirmar mutualismo</button>
+      <button class="btn-no" id="btnNo">Requiere más recolección de datos</button>
+    </div>
+  </div>
+
+  <div class="celebration" id="celebration" hidden>
+    <img class="celebration-gif gif-1" src="assets/gif/gif1.gif" alt="" loading="lazy">
+    <img class="celebration-gif gif-2" src="assets/gif/gif2.gif" alt="" loading="lazy">
+    <img class="celebration-gif gif-3" src="assets/gif/gif3.gif" alt="" loading="lazy">
+    <img class="celebration-gif gif-4" src="assets/gif/gif4.gif" alt="" loading="lazy">
+    <img class="celebration-gif gif-5" src="assets/gif/gif5.gif" alt="" loading="lazy">
+    <img class="celebration-gif gif-6" src="assets/gif/gif6.gif" alt="" loading="lazy">
+    <img class="celebration-gif gif-7" src="assets/gif/gif7.gif" alt="" loading="lazy">
+    <img class="celebration-gif gif-8" src="assets/gif/gif8.gif" alt="" loading="lazy">
+    <h2 class="celebration-title">Yupiiiiiiii</h2>
+    <p class="celebration-sub">el experimento fue un éxito</p>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
