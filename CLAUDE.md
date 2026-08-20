@@ -126,9 +126,10 @@ lista completa de qué es cada `data-edit` está en `README.md`.
    convendría mover el proyecto fuera de OneDrive.
 2. **`START_DATE` en `script.js` es una fecha calibrada, no
    necesariamente la fecha real de aniversario.** Está fijada en
-   `"2022-04-06"` para que el contador mostrará 1595 días el
-   2026-08-18 (pedido explícito del usuario en su momento). Si esa NO
-   es la fecha real en que empezaron, hay que ajustarla.
+   `"2022-04-08"` para que el contador muestre 1595 días el
+   2026-08-20 (recalibrada a pedido del usuario; antes estaba en
+   `"2022-04-06"` con referencia al 2026-08-18). Sigue sumando desde
+   ahí. Si esa NO es la fecha real en que empezaron, hay que ajustarla.
 3. **El panel de preview del entorno Claude Code fue inconsistente
    durante todo el desarrollo** (screenshots en blanco, clics que no
    registran, coordenadas desfasadas). No es un bug del sitio — se
