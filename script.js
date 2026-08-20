@@ -4,6 +4,12 @@
 const START_DATE = "2022-04-06";
 // ====================================================
 
+// Evita que el navegador restaure el scroll donde había quedado al recargar.
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+window.scrollTo(0, 0);
+
 function initDayCounter() {
   const el = document.getElementById("dayCount");
   const start = new Date(START_DATE);
@@ -152,10 +158,17 @@ function initQuestion() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  window.scrollTo(0, 0);
   initDayCounter();
   initScrollReveal();
   initScrollCue();
   initEnvelope();
   initDodgeButton();
   initQuestion();
+});
+
+// Si el navegador restaura la página desde la caché (botón atrás/adelante),
+// también forzar el scroll al principio.
+window.addEventListener("pageshow", (e) => {
+  if (e.persisted) window.scrollTo(0, 0);
 });
