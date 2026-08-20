@@ -145,6 +145,11 @@ function initQuestion() {
   const celebration = document.getElementById("celebration");
   const questionSection = document.getElementById("question");
   const audio = document.getElementById("celebrationAudio");
+  const audio2 = document.getElementById("celebrationAudio2");
+  audio.addEventListener("ended", () => {
+    audio2.currentTime = 0;
+    audio2.play().catch(() => {});
+  });
   btnYes.addEventListener("click", () => {
     questionBox.hidden = true;
     celebration.hidden = false;
