@@ -1,7 +1,7 @@
 // ================== PERSONALIZAR ==================
 // Fecha en que empezaron (o en la que se conocieron) para el contador de días.
-// Fijada para que el estudio muestre 1595 días al 2026-08-18; sigue sumando desde ahí.
-const START_DATE = "2022-04-06";
+// Fijada para que el estudio muestre 1595 días al 2026-08-20; sigue sumando desde ahí.
+const START_DATE = "2022-04-08";
 // ====================================================
 
 // Evita que el navegador restaure el scroll donde había quedado al recargar.
@@ -104,39 +104,39 @@ function initDodgeButton() {
   }, { passive: false });
 }
 
-function spawnConfettiWave(count) {
+const HEART_PATH = "M16 29C8 22 0 16.8 0 9.6 0 4.3 4 0 9.1 0c2.9 0 5.5 1.4 6.9 3.6C17.4 1.4 20 0 22.9 0 28 0 32 4.3 32 9.6 32 16.8 24 22 16 29z";
+const HEART_COLORS = ["#e11d3c", "#ff4d6d", "#ff85a1", "#ffb3c1", "#c9184a", "#a4133c", "#ff8fa3", "#d90429"];
+
+function spawnHeartWave(count) {
   const layer = document.getElementById("petal-layer");
-  const colors = ["#f6f1e2", "#d97b52", "#91a980", "#e8c5a5", "#4a5c40", "#b9623d"];
-  const emojis = ["🎉", "💚", "✨", "🌿", "❤️", "🥳"];
   for (let i = 0; i < count; i++) {
     setTimeout(() => {
       const piece = document.createElement("div");
-      piece.className = "confetti-piece";
-      const useEmoji = Math.random() < 0.22;
-      const drift = `${(Math.random() * 160 - 80).toFixed(0)}px`;
+      piece.className = "confetti-piece heart-piece";
+      const drift = `${(Math.random() * 220 - 110).toFixed(0)}px`;
       piece.style.setProperty("--drift", drift);
-      if (useEmoji) {
-        piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        piece.style.fontSize = `${16 + Math.random() * 14}px`;
-      } else {
-        const w = 6 + Math.random() * 8;
-        piece.style.width = `${w}px`;
-        piece.style.height = `${Math.random() < 0.5 ? w : w * 2.2}px`;
-        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-        if (Math.random() < 0.4) piece.style.borderRadius = "50%";
-      }
+      const size = 10 + Math.random() * 42;
+      const color = HEART_COLORS[Math.floor(Math.random() * HEART_COLORS.length)];
+      piece.style.width = `${size}px`;
+      piece.style.height = `${size * 0.9}px`;
+      piece.innerHTML = `<svg viewBox="0 0 32 29" width="100%" height="100%"><path d="${HEART_PATH}" fill="${color}"/></svg>`;
       piece.style.left = `${Math.random() * 100}vw`;
-      piece.style.animationDuration = `${2.6 + Math.random() * 2.8}s`;
+      piece.style.opacity = `${0.65 + Math.random() * 0.35}`;
+      piece.style.setProperty("--spin", `${(Math.random() * 720 - 360).toFixed(0)}deg`);
+      piece.style.animationDuration = `${2.4 + Math.random() * 3.2}s`;
       layer.appendChild(piece);
-      setTimeout(() => piece.remove(), 6500);
-    }, i * 18);
+      setTimeout(() => piece.remove(), 7000);
+    }, i * 10);
   }
 }
 
 function spawnConfetti() {
-  spawnConfettiWave(110);
-  setTimeout(() => spawnConfettiWave(90), 350);
-  setTimeout(() => spawnConfettiWave(70), 750);
+  spawnHeartWave(160);
+  setTimeout(() => spawnHeartWave(160), 250);
+  setTimeout(() => spawnHeartWave(140), 550);
+  setTimeout(() => spawnHeartWave(120), 900);
+  setTimeout(() => spawnHeartWave(100), 1300);
+  setTimeout(() => spawnHeartWave(80), 1800);
 }
 
 function initQuestion() {

@@ -735,14 +735,22 @@ body {
 }
 .confetti-piece {
   --drift: 0px;
+  --spin: 540deg;
   position: absolute;
-  top: -20px;
+  top: -40px;
   opacity: 0.95;
   line-height: 1;
   animation: confetti-fall linear forwards;
 }
+.heart-piece {
+  display: block;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.15));
+}
+.heart-piece svg {
+  display: block;
+}
 @keyframes confetti-fall {
-  to { transform: translate(var(--drift), 110vh) rotate(540deg); opacity: 0.4; }
+  to { transform: translate(var(--drift), 120vh) rotate(var(--spin)); opacity: 0.55; }
 }
 
 /* ===================== SCROLL REVEAL ===================== */
