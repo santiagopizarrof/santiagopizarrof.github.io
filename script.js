@@ -142,6 +142,7 @@ function initQuestion() {
   btnYes.addEventListener("click", () => {
     questionBox.hidden = true;
     celebration.hidden = false;
+    questionSection.querySelectorAll(".deco").forEach((deco) => { deco.style.display = "none"; });
     spawnConfetti();
     questionSection.classList.add("shake");
     setTimeout(() => questionSection.classList.remove("shake"), 550);

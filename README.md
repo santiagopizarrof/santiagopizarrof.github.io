@@ -79,13 +79,15 @@ suena sola apenas toca "Confirmar mutualismo". Para cambiarla, reemplazá
 ese archivo (mismo nombre) o cambiá el `src` del `<audio>` en
 `index.html` (buscá `celebrationAudio`).
 
-**6. GIFs de la celebración** — hay 8, en `assets/gif/gif1.gif` a
-`gif8.gif`, repartidos alrededor del texto "Yupiiiiiiii". Ya vienen
-comprimidos con gifsicle (de ~15 MB bajaron a ~4 MB en total) para que
-la página no tarde en cargar esa parte. Para cambiar alguno, reemplazá
-el archivo correspondiente manteniendo el nombre. Si querés agregar o
-sacar alguno, cada uno es un `<img class="celebration-gif gif-N">` en
-`index.html` con su posición en `style.css` (buscá `.gif-1` a `.gif-8`).
+**6. GIFs de la celebración** — hay 20, en `assets/gif/gif1.gif` a
+`gif20.gif`, repartidos alrededor del texto "Eaaaaaaaaaaaaaaaaaaa" en
+una grilla CSS (cada uno ocupa su propia celda, por eso nunca se
+superponen). Ya vienen comprimidos con gifsicle para que la página no
+tarde en cargar esa parte. Para cambiar alguno, reemplazá el archivo
+correspondiente manteniendo el nombre. Si querés agregar o sacar
+alguno, cada uno es un `<img class="celebration-gif gif-N">` en
+`index.html`, con su celda asignada en `style.css` (buscá `.gif-1` a
+`.gif-20` y el `grid-template-areas` de `.celebration`).
 
 Si en el futuro necesitás comprimir más GIFs, ya está instalado
 `gifsicle` en el proyecto:

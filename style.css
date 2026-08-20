@@ -602,10 +602,18 @@ body {
   position: absolute;
   inset: 0;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "g1  g2  g3  g4  g5  g6"
+    "g7  g8  txt txt g9  g10"
+    "g11 g12 txt txt g13 g14"
+    "g19 g15 g16 g17 g18 g20";
+  gap: 0.9rem;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
+  padding: 1.4rem;
   text-align: center;
 }
 .celebration::before {
@@ -618,13 +626,24 @@ body {
   pointer-events: none;
   animation: celebration-flash 1.1s ease-out;
 }
+.celebration-text {
+  grid-area: txt;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .celebration-title {
   display: inline-block;
+  max-width: 90vw;
   font-family: var(--font-display);
   font-weight: 800;
   color: var(--cream);
-  font-size: clamp(2.4rem, 10vw, 4.5rem);
+  font-size: clamp(1.6rem, 6.5vw, 4rem);
   text-shadow: 0 4px 0 var(--sage-deep);
+  overflow-wrap: break-word;
+  word-break: break-word;
   animation: celebration-bounce-in 0.9s cubic-bezier(.34,1.56,.64,1) both,
              celebration-wiggle 1.4s ease-in-out 0.9s infinite;
 }
@@ -658,26 +677,42 @@ body {
 }
 
 .celebration-gif {
-  position: absolute;
-  width: clamp(150px, 26vw, 230px);
-  border-radius: 14px;
-  box-shadow: 0 10px 0 var(--shadow);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 0 var(--shadow);
   opacity: 0;
-  z-index: 0;
-  animation: celebration-gif-in 0.6s cubic-bezier(.34,1.56,.64,1) both;
+  animation: celebration-gif-in 0.55s cubic-bezier(.34,1.56,.64,1) both;
 }
 @keyframes celebration-gif-in {
   from { opacity: 0; transform: scale(0.4) rotate(var(--gif-rot, 0deg)); }
   to { opacity: 1; transform: scale(1) rotate(var(--gif-rot, 0deg)); }
 }
-.gif-1 { --gif-rot: -8deg; top: 2%; left: 2%; animation-delay: 0.1s; }
-.gif-2 { --gif-rot: 7deg; top: 2%; right: 2%; animation-delay: 0.2s; }
-.gif-3 { --gif-rot: 6deg; top: 15%; left: 27%; width: clamp(110px, 22vw, 190px); animation-delay: 0.3s; }
-.gif-4 { --gif-rot: -6deg; top: 15%; right: 27%; width: clamp(110px, 22vw, 190px); animation-delay: 0.4s; }
-.gif-5 { --gif-rot: 8deg; bottom: 2%; left: 2%; animation-delay: 0.5s; }
-.gif-6 { --gif-rot: -5deg; bottom: 2%; right: 2%; animation-delay: 0.6s; }
-.gif-7 { --gif-rot: -4deg; bottom: 15%; left: 27%; width: clamp(110px, 22vw, 190px); animation-delay: 0.7s; }
-.gif-8 { --gif-rot: 5deg; bottom: 15%; right: 27%; width: clamp(110px, 22vw, 190px); animation-delay: 0.8s; }
+.celebration-gif:nth-of-type(odd) { --gif-rot: -2.5deg; }
+.celebration-gif:nth-of-type(even) { --gif-rot: 2.5deg; }
+.gif-1 { grid-area: g1; animation-delay: 0.03s; }
+.gif-2 { grid-area: g2; animation-delay: 0.06s; }
+.gif-3 { grid-area: g3; animation-delay: 0.09s; }
+.gif-4 { grid-area: g4; animation-delay: 0.12s; }
+.gif-5 { grid-area: g5; animation-delay: 0.15s; }
+.gif-6 { grid-area: g6; animation-delay: 0.18s; }
+.gif-7 { grid-area: g7; animation-delay: 0.21s; }
+.gif-8 { grid-area: g8; animation-delay: 0.24s; }
+.gif-9 { grid-area: g9; animation-delay: 0.27s; }
+.gif-10 { grid-area: g10; animation-delay: 0.3s; }
+.gif-11 { grid-area: g11; animation-delay: 0.33s; }
+.gif-12 { grid-area: g12; animation-delay: 0.36s; }
+.gif-13 { grid-area: g13; animation-delay: 0.39s; }
+.gif-14 { grid-area: g14; animation-delay: 0.42s; }
+.gif-15 { grid-area: g15; animation-delay: 0.45s; }
+.gif-16 { grid-area: g16; animation-delay: 0.48s; }
+.gif-17 { grid-area: g17; animation-delay: 0.51s; }
+.gif-18 { grid-area: g18; animation-delay: 0.54s; }
+.gif-19 { grid-area: g19; animation-delay: 0.57s; }
+.gif-20 { grid-area: g20; animation-delay: 0.6s; }
 @keyframes screen-shake {
   0%, 100% { transform: translate(0, 0); }
   20% { transform: translate(-8px, 4px); }
@@ -720,4 +755,17 @@ body {
 @media (max-width: 600px) {
   .section { padding: 4rem 1.2rem; }
   .deco { transform: scale(0.75); }
+  .celebration {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas:
+      "g1  g2  g3  g4"
+      "g5  g6  g7  g8"
+      "g9  txt txt g10"
+      "g11 txt txt g12"
+      "g13 g14 g15 g16"
+      "g19 g17 g18 g20";
+    gap: 0.5rem;
+    padding: 0.8rem;
+  }
 }
